@@ -28,6 +28,10 @@ const UploadFilesDialogContainer = ({ addVideos }: Props) => {
 
     const onDialogClose = () => {
         setOpen(false);
+        resetUploadingData();
+    }
+
+    const resetUploadingData = () => {
         setIsUploading(false);
         setSelectedFiles([]);
         setProgressMap({});
@@ -56,8 +60,7 @@ const UploadFilesDialogContainer = ({ addVideos }: Props) => {
             }));
 
             addVideos(videos);
-            setSelectedFiles([]);
-            setIsUploading(false);
+            resetUploadingData();
 
             const rejectedFiles = settledBlob.filter(blob => blob.status === 'rejected');
 
