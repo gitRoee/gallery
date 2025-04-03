@@ -37,7 +37,7 @@ const UploadFilesDialog = ({ isOpen,
         <Dialog open={isOpen} onClose={onDialogClose} fullWidth>
             <DialogTitle>Select MP4 Videos to Upload</DialogTitle>
             <DialogContent>
-                <FilePicker onFilesSelected={onFilesChange} />
+                {!isUploading && <FilePicker onFilesSelected={onFilesChange} />}
                 {selectedFiles.length > 0 ? (
                     <List>
                         {selectedFiles.map((file) => (
